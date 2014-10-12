@@ -1,12 +1,11 @@
 (defproject ip-kiosk "0.1.0"
   :description "IP address information kiosk"
-  :url "http://some.where/in.this.country"
   :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/java.jdbc "0.3.5"]
                  [clj-time "0.8.0"]
                  [javax.servlet/servlet-api "2.5"]
                  [compojure "1.1.8"]
                  [hiccup "1.0.5"]
-                 [org.clojure/java.jdbc "0.3.5"]
                  [com.h2database/h2 "1.4.178"]
                  [org.clojure/tools.nrepl "0.2.5"]]
   :plugins [[lein-ring "0.8.11"]]
@@ -22,20 +21,3 @@
   {:dev {:dependencies [[ring-server "0.3.0"]
                         [ring-mock "0.1.5"]
                         [ring/ring-devel "1.2.0"]]}})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

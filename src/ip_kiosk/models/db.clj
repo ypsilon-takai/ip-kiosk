@@ -1,5 +1,5 @@
 (ns ip-kiosk.models.db
-  (:require [clojure.java.jdbc :as s]
+  (:require [clojure.java.jdbc :as sql]
             [clj-time.local :as tl])
   (:import java.sql.DriverManager))
 
