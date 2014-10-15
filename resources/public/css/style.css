@@ -92,8 +92,8 @@ textarea { padding:2px; }
 	float:left;
 	width:186px;
 	height:40px;
-/*	background:url(/ip-kiosk/public/img/logo.png) no-repeat;*/
-	background:url(/sample/public/img/logo.png) no-repeat;
+	background:url(/ip-kiosk/public/img/logo.png) no-repeat;
+/*	background:url(/sample/public/img/logo.png) no-repeat;*/
 }
 
 .searcher-container{

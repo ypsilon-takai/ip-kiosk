@@ -10,8 +10,8 @@
   (html5
     [:head
      [:title "NSN Server IP information"]
-;;     (include-css "/ip-kiosk/public/css/style.css")
-     (include-css "/sample/public/css/style.css")
+     (include-css "/ip-kiosk/public/css/style.css")
+;;     (include-css "/sample/public/css/style.css")
      ]
     [:body
      [:div {:id "wrapper"}

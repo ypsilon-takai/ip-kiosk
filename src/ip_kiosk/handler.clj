@@ -24,7 +24,7 @@
   (nrepl/stop-server @nrepl-server))
 
 (defroutes app-routes
-  (context "/sample" []
+  (context "/ip-kiosk" []
            (GET "/" [] (if/host-list-web))
            (POST "/api" [ipadd hostname comment nickname contact]
                  (do

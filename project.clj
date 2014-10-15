@@ -1,4 +1,4 @@
-(defproject ip-kiosk "0.1.0"
+(defproject ip-kiosk "1.0.0"
   :description "IP address information kiosk"
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/java.jdbc "0.3.5"]
@@ -13,7 +13,7 @@
          :init ip-kiosk.handler/init
          :destroy ip-kiosk.handler/destroy
          :servlet-path-info? false
-         :uberwar-name "sample.war"
+         :uberwar-name "ip-kiosk.war"
          }
   :resource-paths ["resources"]
   :war-resource-paths ["resources"]
