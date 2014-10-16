@@ -4,34 +4,12 @@
   (:import java.sql.DriverManager))
 
 
-;; (def db {:classname "org.sqlite.JDBC",
-;;          :subprotocol "sqlite",
-;;          :subname "db.sq3"})
-
-;; (def db {:classname "org.sqlite.JDBC",
-;;          :subprotocol "sqlite",
-;;          :subname ":memory:"})
-
 (def db {:classname "org.h2.Driver"
          :subprotocol "h2:mem"
          :subname "ipdb;DB_CLOSE_DELAY=-1"
          :user "sa"
          :password ""
          })
-
-;; sqlite
-;; (defn create-host-table []
-;;   (sql/db-do-commands
-;;     db
-;;    (sql/create-table-ddl
-;;     :hostlist
-;;     [:id "INTEGER PRIMARY KEY AUTOINCREMENT"]
-;;     [:lastupdate "TEXT"]
-;;     [:hostname "TEXT"]
-;;     [:nickname "TEXT"]
-;;     [:ip "TEXT"]
-;;     [:contact "TEXT"]
-;;     [:comment "TEXT"])))
 
 ;; h2
 (defn create-host-table []
@@ -73,6 +51,7 @@
 (defn- add-date-info [m]
   (assoc m :lastupdate (tl/format-local-time (tl/local-now) :mysql)))
 
+
 ;; public funcs
 (defn insert-or-update [content-map]
   (if (some (partial = (:hostname content-map)) (host-name-list))
@@ -86,4 +65,13 @@
 (defn all-host-info []
   (map #(dissoc % :id)
        (read-list)))
+
+(defn get-host-info [hostname-or-nickname]
+  (-> (sql/query
+       db
+       ["select * from hostlist where hostname = ? or nickname = ? order by id desc"
+        hostname-or-nickname
+        hostname-or-nickname])
+      (first)
+      (select-keys ,, [:hostname :ip :nickname :lastupdate :contact :comment])))
 

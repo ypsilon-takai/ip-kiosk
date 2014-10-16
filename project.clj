@@ -6,6 +6,7 @@
                  [javax.servlet/servlet-api "2.5"]
                  [compojure "1.1.8"]
                  [hiccup "1.0.5"]
+                 [cheshire "5.3.1"]
                  [com.h2database/h2 "1.4.178"]
                  [org.clojure/tools.nrepl "0.2.5"]]
   :plugins [[lein-ring "0.8.11"]]

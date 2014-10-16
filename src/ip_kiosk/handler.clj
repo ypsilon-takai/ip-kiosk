@@ -4,13 +4,8 @@
             [compojure.route :as route]
             [ip-kiosk.models.db :as db]
             [ip-kiosk.routes.if :as if]
-            [clojure.tools.nrepl.server :as nrepl]))
-
-;; (defn init []
-;;   (println "Starting IP kiosk.")
-;;   (if-not (.exists (java.io.File. "db.sq3"))
-;;     (db/create-host-table)
-;;     ))
+            [clojure.tools.nrepl.server :as nrepl]
+            [cheshire.core :as json]))
 
 (def nrepl-server (atom nil))
 
@@ -38,6 +33,9 @@
                         " comment:" comment
                         " nickname:" nickname
                         " contact:" contact)))
+           (GET "/api" [name]
+                (-> (db/get-host-info name)
+                    (json/generate-string ,,)))
            (route/resources "/public/")
            (route/not-found "Not Found")))
 
