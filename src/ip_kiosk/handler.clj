@@ -5,13 +5,14 @@
             [ip-kiosk.models.db :as db]
             [ip-kiosk.routes.if :as if]
             [clojure.tools.nrepl.server :as nrepl]
-            [cheshire.core :as json]))
+            [cheshire.core :as json]
+            [cider.nrepl :refer (cider-nrepl-handler)]))
 
 (def nrepl-server (atom nil))
 
 (defn init []
   (println "Starting IP kiosk.")
-  (reset! nrepl-server (nrepl/start-server :port 7888))
+  (reset! nrepl-server (nrepl/start-server :port 7888 :handler cider-nrepl-handler))
   (db/create-host-table))
 
 (defn destroy []

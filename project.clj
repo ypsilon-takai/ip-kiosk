@@ -8,7 +8,8 @@
                  [hiccup "1.0.5"]
                  [cheshire "5.3.1"]
                  [com.h2database/h2 "1.4.178"]
-                 [org.clojure/tools.nrepl "0.2.5"]]
+                 [org.clojure/tools.nrepl "0.2.5"]
+                 [cider/cider-nrepl "0.8.0-SNAPSHOT"]]
   :plugins [[lein-ring "0.8.11"]]
   :ring {:handler ip-kiosk.handler/app
          :init ip-kiosk.handler/init
