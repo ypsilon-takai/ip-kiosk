@@ -10,6 +10,7 @@
   (html5
     [:head
      [:title "NSN Server IP information"]
+     [:meta {:http-equiv "content-type" :content "text/html;charset=utf-8"}]
      (include-css "/ip-kiosk/public/css/style.css")
 ;;     (include-css "/sample/public/css/style.css")
      ]
@@ -22,10 +23,12 @@
       [:div {:id "footer"}
        "Copyright ©2014- Nokia Japan. All rights reserved."]]]))
 
-
 (defn host-list-web []
   (let [host-list (db/all-host-info)]
     (common-layout
+     [:strong "注意&nbsp;"]
+     "更新時刻を確認して、1時間以内のデータであることを確認してください。"
+     [:br][:br]
      [:table {:id "list"}
       [:caption {:align "left" :style "text-align:left;"} "IP list"]
       [:tr
